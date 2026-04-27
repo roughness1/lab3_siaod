@@ -1,4 +1,4 @@
-
+#Queue two stacks
 class Queue:
     def __init__(self):
         self.in_stack = []
@@ -7,7 +7,7 @@ class Queue:
     def enqueue(self, x):
         self.in_stack.append(x)
 
-    def _transfer(self):
+    def _reverse(self):
         if not self.out_stack:
             while self.in_stack:
                 self.out_stack.append(self.in_stack.pop())
@@ -16,14 +16,14 @@ class Queue:
         if self.size() == 0:
             return None
         
-        self._transfer()
+        self._reverse()
         return self.out_stack.pop()
 
     def front(self):
         if self.size() == 0:
             return None
             
-        self._transfer()
+        self._reverse()
         return self.out_stack[-1]
 
     def size(self):
